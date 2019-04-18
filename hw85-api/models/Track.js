@@ -5,16 +5,20 @@ const Schema = mongoose.Schema;
 const TrackSchema = new Schema({
     title: {
         type: String,
-        required: true,
+        required: true
     },
     album: {
         type: Schema.Types.ObjectId,
         ref: 'Album',
-        required: true,
+        required: true
     },
     duration: {
         type: String,
-        required: true,
+        required: true
+    },
+    number: {
+        type: Number,
+        required: true
     }
 });
 
