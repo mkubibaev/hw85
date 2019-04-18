@@ -10,9 +10,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './App';
 import artistsReducer from './store/reducers/artistsReducer';
+import albumsReducer from './store/reducers/albumsReducer';
 
 const rootReducer = combineReducers({
-    artists: artistsReducer
+    artists: artistsReducer,
+    albums: albumsReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

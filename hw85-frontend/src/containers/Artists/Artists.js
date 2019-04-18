@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {fetchArtists} from "../store/actions/artistsActions";
+import {fetchArtists} from "../../store/actions/artistsActions";
 import {connect} from "react-redux";
-import Card from "../components/Card/Card";
+import Card from "../../components/Card/Card";
 
 class Artists extends Component {
 
@@ -17,9 +17,9 @@ class Artists extends Component {
                     {this.props.artists.map(artist => (
                         <Card
                             key={artist._id}
-                            routPath={`/artists/${artist._id}`}
                             title={artist.name}
                             image={artist.image}
+                            routePath={`/artists/${artist._id}`}
                         />
                     ))}
                 </div>

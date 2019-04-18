@@ -22,7 +22,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     if (req.query.artist) {
-        Album.find({artist: req.query.artist})
+        Album.find({artist: req.query.artist}).sort('year')
             .then(result => res.send(result))
             .catch(() => res.sendStatus(500));
     } else {

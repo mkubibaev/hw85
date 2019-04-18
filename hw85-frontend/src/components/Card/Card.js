@@ -7,16 +7,23 @@ const Card = props => {
         <div className="col-12 col-sm-6 col-md-4">
             <div className="card mb-2">
                 {props.image
-                    ? <NavLink to={props.routPath}>
-                        <img src={`${apiURL}/uploads/${props.image}`}
-                           className="card-img-top" alt={props.title}
-                        />
-                    </NavLink>
+                    ? <img src={`${apiURL}/uploads/${props.image}`} className="card-img-top" alt={props.title}/>
                     : null
                 }
 
                 <div className="card-body">
-                    <h5 className="card-title">{props.title}</h5>
+                    <h5 className="card-title">
+                        {props.routePath
+                            ? <NavLink to={props.routePath}>{props.title}</NavLink>
+                            : props.title
+                        }
+                    </h5>
+
+                    {props.year
+                        ? <span>{props.year}</span>
+                        : null
+                    }
+
                 </div>
             </div>
         </div>
