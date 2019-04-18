@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
+import Artists from "./containers/Artists";
+import {Route, Switch} from "react-router-dom";
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
+            <Switch>
+                <Route path="/" exact component={Artists} />
 
-            </div>
+            </Switch>
         );
     }
 }
