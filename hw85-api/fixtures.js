@@ -33,8 +33,10 @@ const run = async () => {
         {title: 'Never enough', album: albums[0]._id, duration: '2:39', number: 2},
         {title: 'Rain man', album: albums[0]._id, duration: '5:10', number: 1},
         {title: 'On fire', album: albums[0]._id, duration: '3:07', number: 3},
-        {title: 'Umbrella', album: albums[1]._id, duration: '4:37', number: 5},
-        {title: 'Birthday', album: albums[2]._id, duration: '3:21', number: 4},
+        {title: 'Not afraid', album: albums[1]._id, duration: '4:08', number: 1},
+        {title: 'Umbrella', album: albums[2]._id, duration: '4:37', number: 5},
+        {title: 'Skin', album: albums[3]._id, duration: '4:12', number: 2},
+        {title: 'Birthday', album: albums[4]._id, duration: '3:21', number: 4},
         
     )
 

@@ -1,4 +1,5 @@
 import {
+    FETCH_ALBUM_SUCCESS,
     FETCH_ALBUMS_SUCCESS,
     FETCH_DATA_FAILURE,
     FETCH_DATA_REQUEST
@@ -6,6 +7,7 @@ import {
 
 const initialState = {
     albums: [],
+    album: {},
     error: null,
     loading: true
 };
@@ -20,6 +22,9 @@ const albumReducer = (state = initialState, action) => {
 
         case FETCH_ALBUMS_SUCCESS:
             return {...state, albums: action.albums, loading: false};
+
+        case FETCH_ALBUM_SUCCESS:
+            return {...state, album: action.album};
 
         default:
             return state
