@@ -29,6 +29,8 @@ class Artists extends Component {
 }
 
 const mapStateToProps = state => ({
+    error: state.artists.error,
+    loading: state.artists.loading,
     artists: state.artists.artists
 });
 

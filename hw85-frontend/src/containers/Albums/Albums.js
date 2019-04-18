@@ -31,6 +31,8 @@ class Albums extends Component {
     }
 }
 const mapStateToProps = state => ({
+    error: state.albums.error,
+    loading: state.albums.loading,
     artist: state.artists.artist,
     albums: state.albums.albums
 });

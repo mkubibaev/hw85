@@ -1,16 +1,24 @@
 import React, {Component} from 'react';
-import {fetchTracks} from "../../store/actions/tracksActions";
 import {connect} from "react-redux";
+import {fetchTracks} from "../../store/actions/tracksActions";
+import {fetchAlbum} from "../../store/actions/albumsActions";
+import {fetchArtist} from "../../store/actions/artistsActions";
 
 class Tracks extends Component {
-    componentDidMount() {
+    async componentDidMount() {
+        await this.props.fetchAlbum(this.props.match.params.id);
+
+        if (this.props.album && this.props.album.artist) {
+            await this.props.fetchArtist(this.props.album.artist);
+        }
+
         this.props.fetchTracks(this.props.match.params.id);
     }
 
     render() {
         return (
             <div className="container py-3">
-                <h1 className="mb-3">Tracks</h1>
+                <h1 className="mb-3">{this.props.artist.name} - {this.props.album.title}</h1>
 
                 <ul className="list-group">
                     {this.props.tracks.map(track => (
@@ -29,11 +37,16 @@ class Tracks extends Component {
 const mapStateToProps = state => ({
     error: state.tracks.error,
     loading: state.tracks.loading,
-    tracks: state.tracks.tracks
+    album: state.albums.album,
+    artist: state.artists.artist,
+    tracks: state.tracks.tracks,
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchTracks: albumId => dispatch(fetchTracks(albumId))
+    fetchAlbum: albumId => dispatch(fetchAlbum(albumId)),
+    fetchArtist: artistId => dispatch(fetchArtist(artistId)),
+    fetchTracks: albumId => dispatch(fetchTracks(albumId)),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tracks);
