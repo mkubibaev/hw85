@@ -15,7 +15,7 @@ class Tracks extends Component {
                 <ul className="list-group">
                     {this.props.tracks.map(track => (
                         <li key={track._id} className="list-group-item d-flex justify-content-between align-items-center">
-                            {track.title}
+                            {track.number}. {track.title}
                             <span className="badge badge-primary badge-pill">{track.duration}</span>
                         </li>
                     ))}
