@@ -12,12 +12,14 @@ router.get('/', auth, async (req, res) => {
     if (req.user) {
         try {
             const trackHistory = await TrackHistory.find({user: req.user._id})
-                .sort('datetime')
+                .sort({datetime: -1})
                 .populate({
                     path: 'track',
-                    populate: {path: 'title', model: 'Album',
+                    populate: {
+                        path: 'album', 
+                        model: 'Album',
                         populate: {
-                            path: 'name',
+                            path: 'artist',
                             model: 'Artist'
                         }
                     },
@@ -28,7 +30,7 @@ router.get('/', auth, async (req, res) => {
             return res.sendStatus(500);    
         }
     } else {
-        return res.status(401).redirect("/login");
+        return res.status(401).redirect('/login');
     }
 });
 

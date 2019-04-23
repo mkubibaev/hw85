@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {fetchTracks} from "../../store/actions/tracksActions";
 import {fetchAlbum} from "../../store/actions/albumsActions";
 import {fetchArtist} from "../../store/actions/artistsActions";
+import {addTrackHistory} from "../../store/actions/trackHistoryActions";
 
 class Tracks extends Component {
     async componentDidMount() {
@@ -22,7 +23,11 @@ class Tracks extends Component {
 
                 <ul className="list-group">
                     {this.props.tracks.map(track => (
-                        <li key={track._id} className="list-group-item d-flex justify-content-between align-items-center">
+                        <li
+                            key={track._id}
+                            className="list-group-item d-flex justify-content-between align-items-center"
+                            onClick={() => this.props.addTrackHistory(track._id)}
+                        >
                             {track.number}. {track.title}
                             <span className="badge badge-primary badge-pill">{track.duration}</span>
                         </li>
@@ -46,7 +51,7 @@ const mapDispatchToProps = dispatch => ({
     fetchAlbum: albumId => dispatch(fetchAlbum(albumId)),
     fetchArtist: artistId => dispatch(fetchArtist(artistId)),
     fetchTracks: albumId => dispatch(fetchTracks(albumId)),
-
+    addTrackHistory: trackId => dispatch(addTrackHistory(trackId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tracks);
