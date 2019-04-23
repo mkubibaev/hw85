@@ -33,7 +33,7 @@ class Register extends Component {
     render() {
         return (
             <Fragment>
-                <h2>Register new user</h2>
+                <h2 className="mb-2">Register new user</h2>
                 {this.props.error && this.props.error.global && (
                     <div className="alert alert-danger mb-2">
                         {this.props.error.global}

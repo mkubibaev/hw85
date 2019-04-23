@@ -23,7 +23,7 @@ class Login extends Component {
     render() {
         return (
             <Fragment>
-                <h2>Login</h2>
+                <h2 className="mb-2">Login</h2>
                 <form onSubmit={this.submitFormHandler}>
                     <FormElement
                         propertyName="username"

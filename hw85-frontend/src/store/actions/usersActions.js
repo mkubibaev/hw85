@@ -3,7 +3,7 @@ import {push} from 'connected-react-router';
 
 import {LOGIN_USER_FAILURE, LOGIN_USER_SUCCESS, REGISTER_USER_FAILURE, REGISTER_USER_SUCCESS} from "./actionTypes";
 
-export const registerUserSuccess = () => ({type: REGISTER_USER_SUCCESS});
+export const registerUserSuccess = user => ({type: REGISTER_USER_SUCCESS, user});
 export const registerUserFailure = error => ({type: REGISTER_USER_FAILURE, error});
 
 export const loginUserSuccess = user => ({type: LOGIN_USER_SUCCESS, user});
@@ -13,9 +13,9 @@ export const loginUserFailure = error => ({type: LOGIN_USER_FAILURE, error});
 export const registerUser = userData => {
     return async dispatch => {
         try {
-            await axios.post('/users', userData);
+            const response = await axios.post('/users', userData);
 
-            dispatch(registerUserSuccess());
+            dispatch(registerUserSuccess(response.data.user));
             dispatch(push('/'));
         } catch (error) {
 
