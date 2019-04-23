@@ -17,7 +17,7 @@ class Tracks extends Component {
 
     render() {
         return (
-            <div className="container py-3">
+            <div className="container">
                 <h1 className="mb-3">{this.props.artist.name} - {this.props.album.title}</h1>
 
                 <ul className="list-group">

@@ -24,7 +24,7 @@ const artistsReducer = (state = initialState, action) => {
             return {...state, artists: action.artists, loading: false};
 
         case FETCH_ARTIST_SUCCESS:
-            return {...state, artist: action.artist}
+            return {...state, artist: action.artist};
 
         default:
             return state

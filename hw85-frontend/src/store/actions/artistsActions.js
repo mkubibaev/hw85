@@ -15,7 +15,7 @@ export const fetchArtists = () => {
             const response = await axios.get('/artists');
             dispatch(fetchArtistsSuccess(response.data))
         } catch (e) {
-            dispatch(fetchDataFailure(e))
+            dispatch(fetchDataFailure(e));
         }
     }
 };

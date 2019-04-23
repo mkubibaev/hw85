@@ -12,11 +12,13 @@ import App from './App';
 import artistsReducer from './store/reducers/artistsReducer';
 import albumsReducer from './store/reducers/albumsReducer';
 import tracksReducer from './store/reducers/tracksReducer';
+import usersReducer from './store/reducers/usersReducer';
 
 const rootReducer = combineReducers({
     artists: artistsReducer,
     albums: albumsReducer,
-    tracks: tracksReducer
+    tracks: tracksReducer,
+    users: usersReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {fetchArtist} from "../../store/actions/artistsActions";
 import {connect} from "react-redux";
 import {fetchAlbums} from "../../store/actions/albumsActions";
@@ -13,7 +13,7 @@ class Albums extends Component {
 
     render() {
         return (
-            <div className="container py-3">
+            <Fragment>
                 <h1 className="mb-3">{this.props.artist.name}'s albums</h1>
                 <div className="row">
                     {this.props.albums.map(album => (
@@ -26,7 +26,7 @@ class Albums extends Component {
                         />
                     ))}
                 </div>
-            </div>
+            </Fragment>
         );
     }
 }
